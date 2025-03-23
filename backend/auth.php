@@ -36,7 +36,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
     if ($user && password_verify($_POST['password'], $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        header('Location: ../public/dashboard.php');
+
+        // retourne une page temporaire avec une animation et redirection JS
+        echo <<<HTML
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <title>Connexion réussie</title>
+            <script>
+                setTimeout(() => {
+                    document.body.classList.add('opacity-0');
+                    setTimeout(() => {
+                        window.location.href = "../public/dashboard.php";
+                    }, 800); // Durée du fade out
+                }, 500); // petite pause avant fade out
+            </script>
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body class="flex items-center justify-center h-screen bg-blue-100 text-purple-800 text-xl font-semibold transition-opacity duration-700 opacity-100">
+            Connexion réussie. Redirection en cours...
+        </body>
+        </html>
+        HTML;
         exit();
     } else {
         echo "Identifiants incorrects";
