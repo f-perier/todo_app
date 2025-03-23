@@ -1,0 +1,23 @@
+/* Applique une animation au chargement des tâches */
+.task-item {
+    transition: all 0.3s ease-in-out;
+}
+
+.task-item:hover {
+    transform: scale(1.02);
+}
+
+/* Style pour les tâches terminées */
+.task-completed {
+    background-color: #d1fae5; /* Vert clair */
+    text-decoration: line-through;
+}
+
+/* Style des boutons */
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
