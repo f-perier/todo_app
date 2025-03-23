@@ -21,3 +21,16 @@ button {
 button:hover {
     opacity: 0.8;
 }
+.bg_img {
+    background-image: url('../pics/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
